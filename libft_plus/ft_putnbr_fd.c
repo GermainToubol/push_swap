@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 14:34:52 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 18:21:11 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/05/03 11:49:39 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/05/03 11:58:01 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char	*argv[])
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	int		sign;
+	char	*digits;
 
-	if (argc == 1)
-		return (0);
-	stack_a = NULL;
-	stack_b = NULL;
-	if (args_to_stack(argc, argv, &stack_a))
-		return (put_error());
-	//show_state(stack_a, stack_b);
-	sort_stack(&stack_a, &stack_b);
-	//show_state(stack_a, stack_b);
-	stack_clear(&stack_a);
-	stack_clear(&stack_b);
-	return (0);
+	digits = "0123456789";
+	sign = 1;
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		sign = -1;
+	}
+	if (sign * n >= 10 || sign * n < 0)
+		ft_putnbr_fd(sign * (n / 10), fd);
+	ft_putchar_fd(digits[sign * (n % 10)], fd);
 }

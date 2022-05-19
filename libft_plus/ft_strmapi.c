@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 14:34:52 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 18:21:11 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/05/03 10:50:36 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/05/09 09:51:49 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char	*argv[])
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	char	*new;
+	size_t	len;
+	size_t	i;
 
-	if (argc == 1)
-		return (0);
-	stack_a = NULL;
-	stack_b = NULL;
-	if (args_to_stack(argc, argv, &stack_a))
-		return (put_error());
-	//show_state(stack_a, stack_b);
-	sort_stack(&stack_a, &stack_b);
-	//show_state(stack_a, stack_b);
-	stack_clear(&stack_a);
-	stack_clear(&stack_b);
-	return (0);
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	i = 0;
+	new = (char *)ft_calloc(len + 1, sizeof(*new));
+	if (new == NULL)
+		return (NULL);
+	while (i < len)
+	{
+		new[i] = (*f)(i, s[i]);
+		i++;
+	}
+	new[len] = '\0';
+	return (new);
 }

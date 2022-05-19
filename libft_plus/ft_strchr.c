@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 14:34:52 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 18:21:11 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/05/02 16:46:45 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/05/09 11:21:30 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char	*argv[])
+char	*ft_strchr(const char *s, int c)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	size_t	i;
 
-	if (argc == 1)
-		return (0);
-	stack_a = NULL;
-	stack_b = NULL;
-	if (args_to_stack(argc, argv, &stack_a))
-		return (put_error());
-	//show_state(stack_a, stack_b);
-	sort_stack(&stack_a, &stack_b);
-	//show_state(stack_a, stack_b);
-	stack_clear(&stack_a);
-	stack_clear(&stack_b);
-	return (0);
+	c = (char)c ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			return ((char *)s + i);
+		i++;
+	}
+	if (c == '\0')
+		return ((char *)s + i);
+	return (NULL);
 }

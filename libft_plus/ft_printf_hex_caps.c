@@ -1,32 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf_hex_caps.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 14:34:52 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 18:21:11 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/05/11 10:04:49 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/05/16 17:09:51 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char	*argv[])
+int	ft_printf_hex_caps(unsigned int nbr, t_convert *convert)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-
-	if (argc == 1)
-		return (0);
-	stack_a = NULL;
-	stack_b = NULL;
-	if (args_to_stack(argc, argv, &stack_a))
-		return (put_error());
-	//show_state(stack_a, stack_b);
-	sort_stack(&stack_a, &stack_b);
-	//show_state(stack_a, stack_b);
-	stack_clear(&stack_a);
-	stack_clear(&stack_b);
-	return (0);
+	return (ft_printf_hex_base(nbr, "0123456789ABCDEF0X", convert));
 }

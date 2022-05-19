@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 14:34:52 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 18:21:11 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/05/02 17:05:51 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/05/09 09:45:36 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char	*argv[])
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	size_t			i;
+	unsigned char	*src;
+	unsigned char	target;
 
-	if (argc == 1)
-		return (0);
-	stack_a = NULL;
-	stack_b = NULL;
-	if (args_to_stack(argc, argv, &stack_a))
-		return (put_error());
-	//show_state(stack_a, stack_b);
-	sort_stack(&stack_a, &stack_b);
-	//show_state(stack_a, stack_b);
-	stack_clear(&stack_a);
-	stack_clear(&stack_b);
-	return (0);
+	i = 0;
+	src = (unsigned char *)s;
+	target = (unsigned char)c;
+	while (i < n)
+	{
+		if (src[i] == target)
+			return ((void *)(src + i));
+		i++;
+	}
+	return (NULL);
 }

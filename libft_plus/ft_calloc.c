@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 14:34:52 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 18:21:11 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/05/02 17:47:10 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/05/12 14:30:37 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
-#include "push_swap.h"
+#include <stdlib.h>
+#include "libft.h"
 
-int	main(int argc, char	*argv[])
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	size_t	prod;
+	void	*new;
 
-	if (argc == 1)
-		return (0);
-	stack_a = NULL;
-	stack_b = NULL;
-	if (args_to_stack(argc, argv, &stack_a))
-		return (put_error());
-	//show_state(stack_a, stack_b);
-	sort_stack(&stack_a, &stack_b);
-	//show_state(stack_a, stack_b);
-	stack_clear(&stack_a);
-	stack_clear(&stack_b);
-	return (0);
+	prod = nmemb * size;
+	if (nmemb && size && (prod / size != nmemb || prod / nmemb != size))
+		return (NULL);
+	new = malloc(nmemb * size);
+	if (new)
+		ft_bzero(new, prod);
+	return (new);
 }

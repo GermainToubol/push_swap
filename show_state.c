@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_reverse_rotate.c                             :+:      :+:    :+:   */
+/*   show_state.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 14:20:30 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 17:08:54 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/05/19 17:15:33 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/05/19 17:25:57 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
+#include "libft/libft.h"
 #include "push_swap.h"
 
-void	stack_reverse_rotate(t_stack **stack)
+void	show_state(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack	*tmp;
-	t_stack	*prev;
-
-	if (*stack == NULL || (*stack)->next == NULL)
-		return ;
-	prev = *stack;
-	tmp = *stack;
-	while (tmp->next != NULL)
+	ft_printf(" %6s %6s\n", "a", "b");
+	ft_printf(" ------ ------\n");
+	while (stack_a || stack_b)
 	{
-		prev = tmp;
-		tmp = tmp->next;
+		if (stack_a)
+		{
+			ft_printf("% 7d", stack_a->value);
+			stack_a = stack_a->next;
+		}
+		else
+			ft_printf("%7s", "");
+		if (stack_b)
+		{
+			ft_printf("% 7d", stack_b->value);
+			stack_b = stack_b->next;
+		}
+		ft_printf("\n");
 	}
-	prev->next = NULL;
-	tmp->next = *stack;
-	*stack = tmp;
 }

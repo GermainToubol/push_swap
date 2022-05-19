@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:54:13 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 15:12:31 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/19 17:38:02 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -15,6 +15,8 @@
 #include "push_swap.h"
 
 static void	stack_transfer(t_stack **dest, t_stack **src);
+static int	nbr_cmp(char *str1, char *str2);
+static int	is_in_stack(int n, t_stack *stack);
 
 int	args_to_stack(int argc, char *argv[], t_stack **stack)
 {
@@ -29,7 +31,8 @@ int	args_to_stack(int argc, char *argv[], t_stack **stack)
 	{
 		value = ft_atoi(argv[i]);
 		tmp = ft_itoa(value);
-		if (tmp == NULL || ft_strncmp(tmp, argv[i], ft_strlen(argv[i])))
+		if (tmp == NULL || nbr_cmp(tmp, argv[i])
+			|| is_in_stack(value, tmp_stack))
 		{
 			free(tmp);
 			stack_clear(&tmp_stack);
@@ -49,4 +52,34 @@ static void	stack_transfer(t_stack **dest, t_stack **src)
 	{
 		stack_push(dest, src);
 	}
+}
+
+static int	nbr_cmp(char *str1, char *str2)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (str1[i] == '0')
+		i++;
+	while (str2[j] == '0')
+		j++;
+	while (str1[i] && str1[i] == str2[j])
+	{
+		i++;
+		j++;
+	}
+	return (str1[i] - str2[j]);
+}
+
+static int	is_in_stack(int n, t_stack *stack)
+{
+	while (stack != NULL)
+	{
+		if (stack->value == n)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
 }

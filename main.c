@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:34:52 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 14:56:48 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/19 18:01:30 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -23,6 +23,9 @@ int	main(int argc, char	*argv[])
 	stack_b = NULL;
 	if (args_to_stack(argc, argv, &stack_a))
 		return (put_error());
+	show_state(stack_a, stack_b);
+	sort_stack(&stack_a, &stack_b);
+	show_state(stack_a, stack_b);
 	stack_clear(&stack_a);
 	stack_clear(&stack_b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:11:33 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 14:20:01 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/19 17:09:15 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -23,7 +23,7 @@ void	stack_rotate(t_stack **stack)
 	*stack = first->next;
 	first->next = NULL;
 	tmp = *stack;
-	while (tmp->next !=NULL)
+	while (tmp->next != NULL)
 	{
 		tmp = tmp->next;
 	}

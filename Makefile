@@ -6,18 +6,20 @@
 #    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 12:37:06 by gtoubol           #+#    #+#              #
-#    Updated: 2022/05/19 13:06:54 by gtoubol          ###   ########.fr        #
+#    Updated: 2022/05/19 14:54:54 by gtoubol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
-SRCS =
+SRCS =		main.c stack_utils.c stack_push.c stack_swap.c stack_rotate.c	\
+			stack_reverse_rotate.c ps_error.c args_to_stack.c
 OBJS = 		$(SRCS:.c=.o)
 
 NAME = 		push_swap
 
 LIBFT_DIR = libft
 LIBFT =		libft/libft.a
+LIB =		-Llibft -lft
 
-CC = 		cc
+CC = 		gcc
 CFLAGS = 	-Wall -Wextra -Werror
 RM =		rm -f
 

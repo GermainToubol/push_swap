@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_reverse_rotate.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/19 14:20:30 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/05/19 14:27:44 by gtoubol          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include <stddef.h>
+#include "push_swap.h"
+
+void	stack_reverse_rotate(t_stack **stack)
+{
+	t_stack	*tmp;
+	t_stack *prev;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
+	prev = *stack;
+	tmp = *stack;
+	while (tmp->next != NULL)
+	{
+		prev = tmp;
+		tmp = tmp->next;
+	}
+	prev->next = NULL;
+	tmp->next = *stack;
+	*stack = tmp;
+}

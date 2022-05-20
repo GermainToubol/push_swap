@@ -6,13 +6,14 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:05:37 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 17:09:39 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/20 17:54:04 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
+#include "libft/libft.h"
 #include "push_swap.h"
 
-void	stack_swap(t_stack **stack)
+void	stack_swap(t_stack **stack, t_inst **instruct)
 {
 	t_stack	*tmp;
 
@@ -21,6 +22,10 @@ void	stack_swap(t_stack **stack)
 	if ((*stack)->next == NULL)
 		return ;
 	tmp = *stack;
+	if (tmp->name == 'a')
+		new_instr(instruct, 4);
+	else
+		new_instr(instruct, 5);
 	(*stack) = tmp->next;
 	tmp->next = (*stack)->next;
 	(*stack)->next = tmp;

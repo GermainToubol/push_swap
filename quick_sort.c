@@ -6,12 +6,35 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 12:30:56 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/20 13:06:00 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/20 17:59:13 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stddef.h>
+#include "libft/libft.h"
 #include "push_swap.h"
 
-int	quartile(t_stack *stack)
+void	merge(t_stack **stack_a, t_stack **stack_b, int size, t_inst **instruct)
 {
-	return (0)
+	int	i;
+	int	is_a;
+
+	if (size == 0)
+		return ;
+	is_a = !('a' - (*stack_a)->name);
+	if (!stack_n_sorted(*stack_b, size, !is_a))
+		divide(stack_b, stack_a, size, instruct);
+	i = 0;
+	while (i < size)
+	{
+		if (*stack_a == NULL
+			|| (is_a && (*stack_a)->value > (*stack_b)->value)
+			|| (!is_a && (*stack_a)->value < (*stack_b)->value))
+			stack_push(stack_a, stack_b, instruct);
+		else
+		{
+			stack_push(stack_a, stack_b, instruct);
+			stack_swap(stack_a, instruct);
+		}
+		i++;
+	}
 }

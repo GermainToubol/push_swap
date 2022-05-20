@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_rotate.c                                     :+:      :+:    :+:   */
+/*   sort_instructions.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 14:11:33 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/20 17:55:46 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/05/20 16:51:34 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/05/20 18:02:26 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
+#include <stdlib.h>
 #include "libft/libft.h"
 #include "push_swap.h"
 
-void	stack_rotate(t_stack **stack, t_inst **instruct)
+void	clean_instructions(t_inst **instructions)
 {
-	t_stack	*tmp;
-	t_stack	*first;
+	t_inst	*tmp;
 
-	if (*stack == NULL || (*stack)->next == NULL)
-		return ;
-	first = *stack;
-	*stack = first->next;
-	first->next = NULL;
-	tmp = *stack;
-	if (tmp->name == 'a')
-		new_instr(instruct, 2);
-	else
-		new_instr(instruct, 3);
-	while (tmp->next != NULL)
+	tmp = *instructions;
+	while (tmp && tmp->next != NULL)
 	{
+		if (tmp->exec + tmp->next->exec == 0)
+		{
+			if (tmp->previous != NULL)
+				tmp->previous->next = tmp->next->next;
+			else
+				*instructions = tmp->next->next;
+			if (tmp->next->next != NULL)
+				tmp->next->next->previous = tmp->previous;
+			free(tmp->next);
+			free(tmp);
+			tmp = *instructions;
+			continue ;
+		}
 		tmp = tmp->next;
 	}
-	tmp->next = first;
 }

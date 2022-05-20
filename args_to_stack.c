@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:54:13 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 17:38:02 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/20 17:57:10 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -50,14 +50,14 @@ static void	stack_transfer(t_stack **dest, t_stack **src)
 {
 	while (*src)
 	{
-		stack_push(dest, src);
+		stack_push(dest, src, NULL);
 	}
 }
 
 static int	nbr_cmp(char *str1, char *str2)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	j = 0;

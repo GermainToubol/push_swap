@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 10:12:15 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/05 10:13:31 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/05/20 12:30:56 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/05/20 13:06:00 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	quartile(t_stack *stack)
 {
-	while (lst != NULL)
-	{
-		(*f)(lst->content);
-		lst = lst->next;
-	}
+	return (0)
 }

@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:09:48 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 18:02:18 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/20 12:37:29 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -20,6 +20,8 @@ typedef struct s_stack
 
 t_stack	*stack_new(t_stack **stack, int value);
 void	stack_clear(t_stack **stack);
+int		stack_len(t_stack *stack);
+
 void	stack_swap(t_stack **stack);
 void	stack_push(t_stack **dest, t_stack **src);
 void	stack_rotate(t_stack **stack);

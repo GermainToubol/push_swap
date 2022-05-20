@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:14:53 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 14:37:23 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/20 12:35:38 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -37,4 +37,17 @@ void	stack_clear(t_stack **stack)
 		free(*stack);
 		*stack = tmp;
 	}
+}
+
+int	stack_len(t_stack *stack)
+{
+	int	len;
+
+	len = 0;
+	while (stack != NULL)
+	{
+		len++;
+		stack = stack->next;
+	}
+	return (len);
 }

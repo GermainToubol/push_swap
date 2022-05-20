@@ -6,22 +6,37 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 17:45:27 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/19 18:20:21 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/20 12:28:25 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 #include "libft/libft.h"
 #include "push_swap.h"
 
+int is_sorted(t_stack *stack)
+{
+	if (stack == NULL || stack->next == NULL)
+		return (1);
+	while (stack->next != NULL)
+	{
+		if (stack->next->value < stack->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
 void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 {
-	if (*stack_a)
+	if (*stack_a == NULL)
+		return ;
+	if (!is_sorted(*stack_a))
 	{
 		stack_push(stack_b, stack_a);
 		ft_printf("pb\n");
 		sort_stack(stack_a, stack_b);
-		sorted_insert(stack_a, stack_b);
 	}
+	sorted_insert(stack_a, stack_b);
 }
 
 void	sorted_insert(t_stack **stack_a, t_stack **stack_b)

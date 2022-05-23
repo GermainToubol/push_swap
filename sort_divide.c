@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 16:23:42 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/23 12:36:54 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/23 18:43:51 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -36,6 +36,23 @@ static void	reverse_rotate(t_stack **stack, int size, t_inst **instruct)
 	}
 }
 
+int	isclean_median(t_stack	*stack, int size, int is_a, int pivot)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (is_a && stack->value < pivot)
+			return (0);
+		if (!is_a && stack->value > pivot)
+			return (0);
+		i++;
+		stack = stack->next;
+	}
+	return (1);
+}
+
 void	divide(t_stack **stack_a, t_stack **stack_b, int size, t_inst **instruct)
 {
 	int	pivot;
@@ -53,6 +70,7 @@ void	divide(t_stack **stack_a, t_stack **stack_b, int size, t_inst **instruct)
 	{
 		if (!is_top_ordered(*stack_a, is_a))
 			stack_swap(stack_a, instruct);
+		//merge(stack_a, stack_b, 2, instruct);
 		return ;
 	}
 	pivot = median(*stack_a, size);
@@ -62,7 +80,7 @@ void	divide(t_stack **stack_a, t_stack **stack_b, int size, t_inst **instruct)
 	while (i < size)
 	{
 		if ((is_a && ((*stack_a)->value < pivot))
-			|| (!is_a && (*stack_a)->value >= pivot))
+			|| (!is_a && (*stack_a)->value > pivot))
 		{
 			stack_push(stack_b, stack_a, instruct);
 			size_b++;

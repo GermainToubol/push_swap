@@ -6,7 +6,7 @@
 #    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/16 16:41:38 by gtoubol           #+#    #+#              #
-#    Updated: 2022/05/16 17:16:05 by gtoubol          ###   ########.fr        #
+#    Updated: 2022/05/23 14:51:09 by gtoubol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 SRCS = 		ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c 		\

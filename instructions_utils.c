@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 17:01:00 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/23 12:12:44 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/23 14:47:21 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -53,6 +53,7 @@ void	printf_free_instr(t_inst *instr)
 {
 	char	*value;
 
+	value = NULL;
 	while (instr)
 	{
 		if (instr->exec == 1)

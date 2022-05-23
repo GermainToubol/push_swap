@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:09:48 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/23 12:27:27 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/23 18:16:29 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -48,8 +48,11 @@ void	divide(t_stack **stack_a, t_stack **stack_b, int size,
 			t_inst **instruct);
 void	merge(t_stack **stack_a, t_stack **stack_b, int size,
 			t_inst **instruct);
+void	merge2(t_stack **stack_a, t_stack **stack_b, int size,
+			t_inst **instruct);
 
 void	clean_instructions(t_inst **instructions);
+void	change_instructions(t_inst	**instructions);
 int		new_instr(t_inst **instruct, int exec);
 void	printf_free_instr(t_inst *instr);
 

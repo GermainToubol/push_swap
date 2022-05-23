@@ -6,7 +6,7 @@
 #    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 12:37:06 by gtoubol           #+#    #+#              #
-#    Updated: 2022/05/23 13:30:02 by gtoubol          ###   ########.fr        #
+#    Updated: 2022/05/23 14:51:32 by gtoubol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 SRCS =		main.c stack_utils.c stack_push.c stack_swap.c stack_rotate.c	\

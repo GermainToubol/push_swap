@@ -6,13 +6,27 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 17:01:00 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/20 18:07:24 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/23 12:12:44 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 #include <stddef.h>
 #include "libft/libft.h"
 #include "push_swap.h"
+
+static void	free_instr(t_inst **instr)
+{
+	if ((*instr)->next)
+	{
+		(*instr) = (*instr)->next;
+		free((*instr)->previous);
+	}
+	else
+	{
+		free(*instr);
+		*instr = NULL;
+	}
+}
 
 int	new_instr(t_inst **instruct, int execution)
 {
@@ -58,15 +72,6 @@ void	printf_free_instr(t_inst *instr)
 		if (instr->exec == 5)
 			value = "sb";
 		ft_printf("%s\n", value);
-		if (instr->next)
-		{
-			instr = instr->next;
-			free(instr->previous);
-		}
-		else
-		{
-			free(instr);
-			instr = NULL;
-		}
+		free_instr(&instr);
 	}
 }

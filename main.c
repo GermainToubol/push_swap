@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:34:52 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/20 18:07:38 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/23 11:56:00 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -29,7 +29,6 @@ int	main(int argc, char	*argv[])
 	divide(&stack_a, &stack_b, stack_size(stack_a), &instruct);
 	clean_instructions(&instruct);
 	printf_free_instr(instruct);
-	// instruc_clean(&instruct);
 	stack_clear(&stack_a);
 	stack_clear(&stack_b);
 	return (0);

@@ -6,42 +6,35 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 16:23:42 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/20 18:00:04 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/23 12:36:54 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
+#include <stdlib.h>
 #include "libft/libft.h"
 #include "push_swap.h"
 
-static int	is_top_ordered(t_stack *stack, int grow)
+static void	reverse_rotate(t_stack **stack, int size, t_inst **instruct)
 {
-	if (grow && stack->value < stack->next->value)
-		return (1);
-	if (!grow && stack->value > stack->next->value)
-		return (1);
-	return (0);
-}
+	t_stack	*tmp;
+	int i;
 
-static int	inter_mid(t_stack *stack, int size)
-{
-	int	min;
-	int	max;
-
-	if (size == 0)
-		return (0);
-	min = stack->value;
-	max = stack->value;
-	while (stack != NULL)
+	i = 0;
+	tmp = *stack;
+	while (i < size)
 	{
-		if (max < stack->value)
-			max = stack->value;
-		else if (min > stack->value)
-			min = stack->value;
-		stack = stack->next;
+		tmp = tmp->next;
+		i++;
 	}
-	return ((max + min) / 2);
+	if (tmp == NULL)
+		return ;
+	i = 0;
+	while (i < size)
+	{
+		stack_reverse_rotate(stack, instruct);
+		i++;
+	}
 }
-
 
 void	divide(t_stack **stack_a, t_stack **stack_b, int size, t_inst **instruct)
 {
@@ -62,14 +55,14 @@ void	divide(t_stack **stack_a, t_stack **stack_b, int size, t_inst **instruct)
 			stack_swap(stack_a, instruct);
 		return ;
 	}
-	pivot = inter_mid(*stack_a, size);
+	pivot = median(*stack_a, size);
 	i = 0;
 	size_a = 0;
 	size_b = 0;
 	while (i < size)
 	{
 		if ((is_a && ((*stack_a)->value < pivot))
-			|| (!is_a && (*stack_a)->value > pivot))
+			|| (!is_a && (*stack_a)->value >= pivot))
 		{
 			stack_push(stack_b, stack_a, instruct);
 			size_b++;
@@ -81,12 +74,7 @@ void	divide(t_stack **stack_a, t_stack **stack_b, int size, t_inst **instruct)
 		}
 		i++;
 	}
-	i = 0;
-	while (i < size_a)
-	{
-		stack_reverse_rotate(stack_a, instruct);
-		i++;
-	}
+	reverse_rotate(stack_a, size_a, instruct);
 	divide(stack_a, stack_b, size_a, instruct);
 	merge(stack_a, stack_b, size_b, instruct);
 }

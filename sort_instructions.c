@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 16:51:34 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/23 15:58:06 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/24 11:58:59 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -38,6 +38,16 @@ void	clean_instructions(t_inst **instructions)
 	}
 }
 
+static void	free_instruction(t_inst **tmp, t_inst **instructions)
+{
+	*tmp = (*tmp)->next->next;
+	(*tmp)->previous->next = (*tmp)->next;
+	if ((*tmp)->next != NULL)
+		(*tmp)->next->previous = (*tmp)->previous;
+	free(*tmp);
+	*tmp = *instructions;
+}
+
 void	change_instructions(t_inst	**instructions)
 {
 	t_inst	*tmp;
@@ -51,18 +61,13 @@ void	change_instructions(t_inst	**instructions)
 			&& tmp->next->next->exec == -2)
 			tmp->exec = 4;
 		else if (tmp->exec == 3 && tmp->next->exec == 1
-				 && tmp->next->next->exec == -3)
+			&& tmp->next->next->exec == -3)
 			tmp->exec = 5;
 		else
 			cleaned = 0;
 		if (cleaned)
 		{
-			tmp = tmp->next->next;
-			tmp->previous->next = tmp->next;
-			if (tmp->next != NULL)
-				tmp->next->previous = tmp->previous;
-			free(tmp);
-			tmp = *instructions;
+			free_instruction(&tmp, instructions);
 			continue ;
 		}
 		tmp = tmp->next;

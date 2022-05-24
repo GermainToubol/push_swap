@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 17:01:00 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/23 14:47:21 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/24 16:40:53 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -75,4 +75,23 @@ void	printf_free_instr(t_inst *instr)
 		ft_printf("%s\n", value);
 		free_instr(&instr);
 	}
+}
+
+void	free_all_instrs(t_inst	*instr)
+{
+	while (instr)
+		free_instr(&instr);
+}
+
+int	instruct_len(t_inst	*instr)
+{
+	int	i;
+
+	i = 0;
+	while (instr != NULL)
+	{
+		i++;
+		instr = instr->next;
+	}
+	return (i);
 }

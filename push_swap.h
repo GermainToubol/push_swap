@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:09:48 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/24 16:36:57 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/24 17:23:25 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -64,7 +64,7 @@ void	change_instructions(t_inst	**instructions);
 int		new_instr(t_inst **instruct, int exec);
 void	printf_free_instr(t_inst *instr);
 void	free_all_instrs(t_inst	*instr);
-int	instruct_len(t_inst	*instr);
+int		instruct_len(t_inst	*instr);
 
 int		is_top_ordered(t_stack *stack, int grow);
 int		inter_mid(t_stack *stack, int size);

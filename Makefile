@@ -6,7 +6,7 @@
 #    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 12:37:06 by gtoubol           #+#    #+#              #
-#    Updated: 2022/05/24 18:51:12 by gtoubol          ###   ########.fr        #
+#    Updated: 2022/05/24 19:08:57 by gtoubol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 SRCS =		main.c stack_utils.c stack_push.c stack_swap.c stack_rotate.c	\
@@ -14,33 +14,36 @@ SRCS =		main.c stack_utils.c stack_push.c stack_swap.c stack_rotate.c	\
 			quick_sort.c sort_divide.c instructions_utils.c	naive_sort.c 	\
 			sort_instructions.c sort_utils.c small_sort.c sort_insert.c		\
 			stack_calculus.c
-OBJS = 		$(SRCS:.c=.o)
+OBJS = 		$(addprefix srcs/,$(SRCS:.c=.o))
 BONUS =		checker.c ps_error.c stack_calculus.c stack_push.c 				\
 			stack_reverse_rotate.c stack_rotate.c stack_swap.c stack_utils.c\
 			checker_instructions.c args_to_stack.c instructions_utils.c
-OBJS_BONUS = $(BONUS:.c=.o)
+OBJS_BONUS = $(addprefix checker_srcs/,$(BONUS:.c=.o))
 
 NAME = 		push_swap
-NAME_B = 	checker_the_bonus
+NAME_B = 	checker
+
+vpath %.c	srcs:checker
+vpath %.o	srcs:checker
 
 LIBFT_DIR = libft
 LIBFT =		libft/libft.a
 LIB =		-Llibft -lft
 
 CC = 		gcc
-CFLAGS = 	-Wall -Wextra -Werror
+CFLAGS = 	-Wall -Wextra -Werror -I. -Iincludes -Ilibft
 RM =		rm -f
 
-$(NAME):	$(OBJS)
-			$(CC) $(CFLAGS) -o $@ $^ $(LIB)
+$(NAME):	$(OBJS) $(LIBFT)
+			$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIB)
 
-%.o:		%.c $(LIBFT)
+%.o:		%.c
 			$(CC) $(CFLAGS) -o $@ -c $<
 
 bonus:		$(NAME_B)
 
-$(NAME_B):	$(OBJS_BONUS)
-			$(CC) $(CFLAGS) -o $@ $^ $(LIB)
+$(NAME_B):	$(OBJS_BONUS) $(LIBFT)
+			$(CC) $(CFLAGS) -o $@ $(OBJS_BONUS) $(LIB)
 
 $(LIBFT):
 			make -C $(LIBFT_DIR)

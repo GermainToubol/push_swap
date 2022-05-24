@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:25:47 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/24 18:48:52 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/24 19:11:54 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
@@ -50,17 +50,17 @@ static int	do_push(char *instr, t_stack **stack_a, t_stack **stack_b)
 
 static int	do_rotate(char *instr, t_stack **stack_a, t_stack **stack_b)
 {
-	if (!ft_strncmp(instr, "sa\n", 7))
+	if (!ft_strncmp(instr, "ra\n", 7))
 	{
 		stack_rotate(stack_a, NULL);
 		return (1);
 	}
-	if (!ft_strncmp(instr, "sb\n", 7))
+	if (!ft_strncmp(instr, "rb\n", 7))
 	{
 		stack_rotate(stack_b, NULL);
 		return (1);
 	}
-	if (!ft_strncmp(instr, "ss\n", 7))
+	if (!ft_strncmp(instr, "rr\n", 7))
 	{
 		stack_rotate(stack_a, NULL);
 		stack_rotate(stack_b, NULL);
@@ -71,17 +71,17 @@ static int	do_rotate(char *instr, t_stack **stack_a, t_stack **stack_b)
 
 static int	do_reverse(char *instr, t_stack **stack_a, t_stack **stack_b)
 {
-	if (!ft_strncmp(instr, "sa\n", 7))
+	if (!ft_strncmp(instr, "rra\n", 7))
 	{
 		stack_reverse_rotate(stack_a, NULL);
 		return (1);
 	}
-	if (!ft_strncmp(instr, "sb\n", 7))
+	if (!ft_strncmp(instr, "rrb\n", 7))
 	{
 		stack_reverse_rotate(stack_b, NULL);
 		return (1);
 	}
-	if (!ft_strncmp(instr, "ss\n", 7))
+	if (!ft_strncmp(instr, "rrr\n", 7))
 	{
 		stack_reverse_rotate(stack_a, NULL);
 		stack_reverse_rotate(stack_b, NULL);

@@ -6,12 +6,11 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 16:51:34 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/24 11:58:59 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/25 09:56:05 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 #include <stdlib.h>
-#include "libft/libft.h"
 #include "push_swap.h"
 
 void	clean_instructions(t_inst **instructions)

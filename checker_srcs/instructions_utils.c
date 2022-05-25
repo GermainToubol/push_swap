@@ -6,12 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 17:01:00 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/24 18:21:55 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/25 10:09:47 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 #include <stddef.h>
-#include "libft/libft.h"
+#include "libft.h"
 #include "push_swap.h"
 
 static void	free_instr(t_inst **instr)

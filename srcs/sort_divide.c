@@ -6,12 +6,10 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 16:23:42 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/24 14:45:42 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/25 09:55:21 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
-#include <stdlib.h>
-#include "libft/libft.h"
 #include "push_swap.h"
 
 static void	reverse_rotate(t_stack **stack, int size, t_inst **instruct)

@@ -6,12 +6,12 @@
 #    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 12:37:06 by gtoubol           #+#    #+#              #
-#    Updated: 2022/05/24 19:08:57 by gtoubol          ###   ########.fr        #
+#    Updated: 2022/05/25 10:10:33 by gtoubol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 SRCS =		main.c stack_utils.c stack_push.c stack_swap.c stack_rotate.c	\
-			stack_reverse_rotate.c ps_error.c args_to_stack.c show_state.c	\
-			quick_sort.c sort_divide.c instructions_utils.c	naive_sort.c 	\
+			stack_reverse_rotate.c ps_error.c args_to_stack.c 	\
+			 sort_divide.c instructions_utils.c		\
 			sort_instructions.c sort_utils.c small_sort.c sort_insert.c		\
 			stack_calculus.c
 OBJS = 		$(addprefix srcs/,$(SRCS:.c=.o))
@@ -23,15 +23,12 @@ OBJS_BONUS = $(addprefix checker_srcs/,$(BONUS:.c=.o))
 NAME = 		push_swap
 NAME_B = 	checker
 
-vpath %.c	srcs:checker
-vpath %.o	srcs:checker
-
 LIBFT_DIR = libft
 LIBFT =		libft/libft.a
 LIB =		-Llibft -lft
 
 CC = 		gcc
-CFLAGS = 	-Wall -Wextra -Werror -I. -Iincludes -Ilibft
+CFLAGS = 	-Wall -Wextra -Werror -Iincludes
 RM =		rm -f
 
 $(NAME):	$(OBJS) $(LIBFT)

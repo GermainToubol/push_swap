@@ -6,11 +6,10 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:06:48 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/23 11:22:33 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/25 09:51:45 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
-#include "libft/libft.h"
 #include "push_swap.h"
 
 void	stack_push(t_stack **dest, t_stack **src, t_inst **instruct)

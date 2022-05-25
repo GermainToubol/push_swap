@@ -6,12 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:54:13 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/23 11:30:23 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/25 10:22:51 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 #include <stdlib.h>
-#include "libft/libft.h"
+#include "libft.h"
 #include "push_swap.h"
 
 static void	stack_transfer(t_stack **dest, t_stack **src);
@@ -61,6 +61,13 @@ static int	nbr_cmp(char *str1, char *str2)
 
 	i = 0;
 	j = 0;
+	if (str2[j] == '+')
+		j++;
+	while (str1[i] && str1[i] == str2[j])
+	{
+		i++;
+		j++;
+	}
 	while (str1[i] == '0')
 		i++;
 	while (str2[j] == '0')

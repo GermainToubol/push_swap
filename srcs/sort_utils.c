@@ -6,12 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 12:23:33 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/23 15:38:11 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/25 09:56:50 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 #include <stdlib.h>
-#include "libft/libft.h"
+#include "libft.h"
 #include "push_swap.h"
 
 int	is_top_ordered(t_stack *stack, int grow)

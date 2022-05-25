@@ -6,10 +6,10 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:25:47 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/24 19:11:54 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/25 10:07:02 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+#include "libft.h"
 #include "push_swap.h"
 
 static int	do_swap(char *instr, t_stack **stack_a, t_stack **stack_b)

@@ -6,12 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:14:53 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/20 16:22:13 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/25 10:09:20 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 #include <stdlib.h>
-#include "libft/libft.h"
+#include "libft.h"
 #include "push_swap.h"
 
 t_stack	*stack_new(t_stack **stack, int value)
